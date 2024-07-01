@@ -27,8 +27,9 @@ class ViewController: UIViewController {
       override func viewDidLoad() {
           super.viewDidLoad()
           loadLastSearchedCity()
+          handleKeyBoard()
       }
-      
+    
     @IBAction func fetchWeatherTapped(_ sender: UIButton) {
            guard let city = cityTextField.text, !city.isEmpty else { return }
            
@@ -90,3 +91,19 @@ class ViewController: UIViewController {
           present(alert, animated: true)
       }
   }
+
+extension ViewController{
+    
+    func handleKeyBoard(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+       view.addGestureRecognizer(tap)
+    }
+    
+    
+  @objc func dismissKeyboard() {
+      //Causes the view (or one of its embedded text fields) to resign the first responder status.
+      view.endEditing(true)
+  }
+}
