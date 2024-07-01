@@ -7,25 +7,6 @@
 
 import Foundation
 
-struct WeatherResponse: Codable {
-    let main: Main
-    let weather: [Weather]
-    let wind: Wind
-}
-
-struct Main: Codable {
-    let temp: Double
-    let humidity: Int
-}
-
-struct Weather: Codable {
-    let description: String
-}
-
-struct Wind: Codable {
-    let speed: Double
-}
-
 class WeatherService {
     private let apiKey = "313f995f7bcb3f3749cc39d2051156af"
     private let baseUrl = "https://api.openweathermap.org/data/2.5/weather"
